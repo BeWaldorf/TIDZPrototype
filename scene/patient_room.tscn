@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://ef530qhme0r6"]
+
+[ext_resource type="Script" path="res://code/patient_room.gd" id="1_ta3eq"]
+[ext_resource type="PackedScene" uid="uid://7qh1wn0no26q" path="res://scene/room.tscn" id="2_rfeun"]
+[ext_resource type="PackedScene" uid="uid://dxybm5ykp1obl" path="res://scene/bed.tscn" id="3_3rx4s"]
+[ext_resource type="PackedScene" uid="uid://ckymp42r5vslk" path="res://scene/player.tscn" id="4_btldo"]
+[ext_resource type="PackedScene" uid="uid://bkxou56or6l33" path="res://scene/room_hud.tscn" id="5_1yti4"]
+
+[node name="PatientRoom" type="Node"]
+script = ExtResource("1_ta3eq")
+
+[node name="Room" parent="." instance=ExtResource("2_rfeun")]
+
+[node name="Bed" parent="." instance=ExtResource("3_3rx4s")]
+position = Vector2(104, 670)
+scale = Vector2(3, 3)
+
+[node name="Player" parent="." instance=ExtResource("4_btldo")]
+position = Vector2(883, 600)
+scale = Vector2(0.25, 0.25)
+
+[node name="RoomHUD" parent="." instance=ExtResource("5_1yti4")]
+room_id = 1
+
+[connection signal="patient_task_completed" from="Bed" to="." method="_on_patient_task_completed"]

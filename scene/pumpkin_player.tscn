@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjso1gv4oewlv"]
+
+[ext_resource type="Texture2D" uid="uid://dslyhacrolp75" path="res://img/pumpkin1.png" id="1_3kokk"]
+[ext_resource type="Script" path="res://code/player.gd" id="1_ploit"]
+[ext_resource type="Texture2D" uid="uid://b25nxrp1nr33i" path="res://img/pumpkin2.png" id="2_3fwuv"]
+[ext_resource type="Texture2D" uid="uid://dvv7rwgjpqy3k" path="res://img/pumpkin1_up.png" id="3_tsqke"]
+[ext_resource type="Texture2D" uid="uid://db28ho0xhgny0" path="res://img/pumpkin2_up.png" id="4_ulv4s"]
+[ext_resource type="AudioStream" uid="uid://ddls62qoqhrj" path="res://audio/diablo.wav" id="6_0m3sl"]
+[ext_resource type="AudioStream" uid="uid://0hsxsf4fex3" path="res://audio/rustler.mp3" id="7_8vgs3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_usvmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3kokk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3fwuv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tsqke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ulv4s")
+}],
+"loop": true,
+"name": &"up",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1e4y2"]
+radius = 121.533
+height = 321.965
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ploit")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_usvmo")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 25)
+rotation = -1.39626
+shape = SubResource("CapsuleShape2D_1e4y2")
+
+[node name="PlayerLaughAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0m3sl")
+
+[node name="PlayerWalkAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_8vgs3")

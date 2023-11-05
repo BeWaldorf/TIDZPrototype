@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkxou56or6l33"]
+
+[ext_resource type="Script" path="res://code/room_hud.gd" id="1_xbkr4"]
+
+[node name="RoomHUD" type="Node"]
+script = ExtResource("1_xbkr4")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_right = 1200.0
+offset_bottom = 800.0
+border_width = 3.0
+
+[node name="PatientName" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 24.0
+offset_right = 320.0
+offset_bottom = 64.0
+text = "patientName"
+
+[node name="RoomInfo" type="Label" parent="."]
+offset_left = 1056.0
+offset_right = 1200.0
+offset_bottom = 26.0
+text = "room info
+"
+
+[node name="PatientInfo" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 120.0
+text = "patient info
+"
+
+[node name="TaskBox" type="VBoxContainer" parent="."]
+offset_left = 64.0
+offset_top = 120.0
+offset_right = 360.0
+offset_bottom = 296.0
+
+[node name="CheckBox" type="CheckBox" parent="TaskBox"]
+layout_mode = 2

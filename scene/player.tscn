@@ -1,0 +1,98 @@
+[gd_scene load_steps=15 format=3 uid="uid://ckymp42r5vslk"]
+
+[ext_resource type="Texture2D" uid="uid://nk3ognt76s6j" path="res://img/nurse/run2.png" id="1_p0wac"]
+[ext_resource type="Script" path="res://code/player.gd" id="1_r83hp"]
+[ext_resource type="Texture2D" uid="uid://bhaxaou85rwn3" path="res://img/nurse/run6.png" id="2_dylrt"]
+[ext_resource type="Texture2D" uid="uid://d186ad6drby8f" path="res://img/nurse/run0.png" id="3_s74w0"]
+[ext_resource type="Texture2D" uid="uid://gq20432ej1hx" path="res://img/nurse/run1.png" id="4_jan1p"]
+[ext_resource type="Texture2D" uid="uid://dv3vkiaxrilgr" path="res://img/nurse/run3.png" id="5_fafny"]
+[ext_resource type="Texture2D" uid="uid://dy6kx26cka7q2" path="res://img/nurse/run4.png" id="6_awaq4"]
+[ext_resource type="Texture2D" uid="uid://crxspkuk8dmjq" path="res://img/nurse/run5.png" id="7_jec8f"]
+[ext_resource type="Texture2D" uid="uid://d2e5bwwrajgqs" path="res://img/nurse/run7.png" id="8_15hph"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gyb5o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p0wac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_15hph")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_s74w0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jan1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_p0wac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fafny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_awaq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jec8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dylrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_15hph")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ax6h"]
+radius = 88.3238
+height = 273.874
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0i5m7"]
+radius = 144.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55vq5"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3yl1s"]
+radius = 24.0
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_r83hp")
+metadata/_edit_group_ = true
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gyb5o")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
+
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 168)
+rotation = 0.120428
+shape = SubResource("CapsuleShape2D_8ax6h")
+
+[node name="Head" type="CollisionShape2D" parent="."]
+position = Vector2(8, -48)
+shape = SubResource("CircleShape2D_0i5m7")
+
+[node name="RightHand" type="CollisionShape2D" parent="."]
+position = Vector2(208, 104)
+shape = SubResource("CircleShape2D_55vq5")
+
+[node name="LeftHand" type="CollisionShape2D" parent="."]
+position = Vector2(-192, 104)
+shape = SubResource("CircleShape2D_3yl1s")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+attenuation = 0.297301

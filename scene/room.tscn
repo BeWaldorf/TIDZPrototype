@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://7qh1wn0no26q"]
+
+[ext_resource type="Script" path="res://code/room.gd" id="1_1nrm6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w6fu2"]
+radius = 35.0
+height = 212.0
+
+[node name="Room" type="StaticBody2D"]
+script = ExtResource("1_1nrm6")
+
+[node name="Walls" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1008, 768, 1008, 832, 1256, 832, 1256, -32, -40, -40, -40, 832, 776, 840, 776, 768, 32, 768, 32, 40, 32, 32, 1176, 32, 1176, 768)
+
+[node name="ColorRect" type="ColorRect" parent="Walls"]
+offset_left = -45.0
+offset_top = -83.0
+offset_right = 34.0
+offset_bottom = 837.0
+color = Color(0.2, 0, 0.0235294, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Walls"]
+offset_left = 1175.0
+offset_top = -63.0
+offset_right = 1254.0
+offset_bottom = 857.0
+color = Color(0.2, 0, 0.0235294, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Walls"]
+offset_left = -45.0
+offset_top = -83.0
+offset_right = 1256.0
+offset_bottom = 35.0
+color = Color(0.2, 0, 0.0235294, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Walls"]
+offset_left = -45.0
+offset_top = 767.0
+offset_right = 777.0
+offset_bottom = 837.0
+color = Color(0.2, 0, 0.0235294, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Walls"]
+offset_left = 1006.0
+offset_top = 767.0
+offset_right = 1253.0
+offset_bottom = 875.0
+color = Color(0.2, 0, 0.0235294, 1)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(896, 680)
+metadata/_edit_group_ = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Marker2D"]
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+border_width = 1.8
+
+[node name="ExitArea" type="Area2D" parent="."]
+
+[node name="ExitCollision" type="CollisionShape2D" parent="ExitArea"]
+position = Vector2(890, 816)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_w6fu2")
